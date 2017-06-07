@@ -61,6 +61,8 @@ Alle test in Chrome v58.0.3029.110 durchgeführt
 | 4   | 2.01s | 1.52s | 1.60s | 2.49s | 1.20s | 1.44s |
 | 5   | 1.65s | 1.16s | 1.32s | 2.32s | 1.08s | 1.16s |
 
+Results
+
 |  Ø   | Finnish ohne sw  | DOM ohne sw   | Load ohne sw  | Finish mit sw   | DOM mit sw   | Load mit sw   |
 |:-----|:----------------:|:-------------:|:-------------:|:---------------:|:------------:|:-------------:|
 |      |      1.796s      |    1.332s     |     1.428s    |      2.370s     |    1.158s    |     1.296s    |
