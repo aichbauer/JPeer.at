@@ -54,7 +54,7 @@ mit adaptionen an die hier vorgegebene file struktur.
 
 Alle test in Chrome v58.0.3029.110 durchgeführt
 |  id | Finnish ohne sw  | DOM ohne sw   | Load ohne sw  | Finish mit sw   | DOM mit sw   | Load mit sw   |
-|:----|:----------------:|:-------------:|:-------------:|:---------------:|:------------:|:-------------:|
+|:---|:---:|:---:|:---:|:---:|:---:|:----:|
 | 1   | 1.79s | 1.36s | 1.44s | 2.29s | 1.08s | 1.17s |
 | 2   | 1.68s | 1.26s | 1.34s | 2.51s | 1.26s | 1.44s |
 | 3   | 1.85s | 1.36s | 1.44s | 2.24s | 1.17s | 1.27s |
