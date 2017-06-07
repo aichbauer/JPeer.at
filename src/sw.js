@@ -1,21 +1,53 @@
-self.addEventListener('fetch', function fetcher(event) {
-  const request = event.request;
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = [
+ '/index.html',
+ '/favicon.ico',
+ '/assets/css/global.css',
+ '/assets/js/vendor.js',
+ '/assets/js/app.js',
+ '/assets/js/template.js',
+ '/assets/js/main.js'
+];
 
-  if (request.url.indexOf('assets') > -1) {
-    console.log('Handling fetch event for', event.request.url);
+self.addEventListener('install', function(event) {
 
-    event.respondWith(
-      caches.match(event.request).then((response) => (
-        // response if there is a cache
-        // fetch if there is nothing cached and then cache it
-        response || fetch(request).then(response_two => {
-          caches
-            .open('JPEER_CACHE_SW')
-            .then((cache) => {
-              cache.put(request.url, response_two);
-            });
-        })
-      ))
+  console.log('hello');
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  console.log('fetch');
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+
+        // IMPORTANT: Clone the request. A request is a stream and
+        // can only be consumed once. Since we are consuming this
+        // once by cache and once by the browser for fetch, we need
+        // to clone the response.
+        var fetchRequest = event.request.clone();
+
+        return fetch(fetchRequest).then(
+          function(response) {
+            // Check if we received a valid response
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            return response;
+          }
+        );
+      })
     );
-  }
 });

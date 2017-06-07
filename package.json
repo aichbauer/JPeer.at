@@ -11,12 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/JPeer264/JPeer.at.git"
   },
-  "author": [
-    {
-      "name": "Jan Peer Stöcklmair",
-      "email": "janpeer264@gmail.com"
-    }
-  ],
+  "author": {
+    "name": "Jan Peer Stöcklmair",
+    "email": "janpeer264@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JPeer264/JPeer.at/issues"
